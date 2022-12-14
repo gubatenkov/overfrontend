@@ -1,0 +1,55 @@
+---
+import type IPost from 'src/types/Post'
+
+import HeaderForm from '@ui/react/HeaderForm'
+import Pagination from '@ui/react/Pagination'
+
+import Card from '@ui/astro/Card.astro'
+import Timeline from '@ui/astro/Timeline.astro'
+import MainLayout from 'src/layouts/MainLayout.astro'
+
+import { GLOBAL_CONFIG } from 'src/config'
+import { getDay, getMonth } from 'src/utils/dateFormatters'
+
+interface IFrontmatter {
+  url: string
+  frontmatter: IPost
+}
+
+/** Get all .md,.mdx posts from the directory
+  * and sort them starting with the most recent */
+const posts = (await Astro.glob<IFrontmatter>('./posts/*.{md,mdx}')).sort(
+  (a, b) =>
+    new Date(b.frontmatter.publishedDate).valueOf() -
+    new Date(a.frontmatter.publishedDate).valueOf()
+)
+const latestPosts = posts.slice(0, GLOBAL_CONFIG.paginatedPageSize)
+---
+
+<MainLayout>
+  <HeaderForm />
+  <div class="posts flex flex-col gap-12 mb-12 relative">
+    <Timeline />
+    {
+      latestPosts.map(({ url, frontmatter }: IFrontmatter) => {
+        return (
+          <Card
+            className="gap-8"
+            href={url}
+            tags={frontmatter.tags}
+            title={frontmatter.title}
+            excerpt={frontmatter.description}
+            previewImage={frontmatter.previewImage}
+            day={getDay(frontmatter.publishedDate)}
+            month={getMonth(frontmatter.publishedDate)}
+          />
+        )
+      })
+    }
+  </div>
+  <Pagination
+    currentPage={1}
+    totalItems={posts.length}
+    itemsPerPage={GLOBAL_CONFIG.paginatedPageSize}
+  />
+</MainLayout>

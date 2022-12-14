@@ -1,0 +1,71 @@
+---
+import type IPost from 'src/types/Post'
+// React blocks
+import MoveBack from '@ui/react/MoveBack'
+import FooterForm from '@ui/react/FooterForm'
+import PublishedAt from '@ui/react/PublishedAt'
+import BackToTopBtn from '@ui/react/BackToTopBtn'
+// Astro blocks
+import Topbar from '@ui/astro/Topbar.astro'
+import BaseHead from '@ui/astro/BaseHead.astro'
+import PostAuthors from '@ui/astro/PostAuthors.astro'
+
+import { GLOBAL_CONFIG } from 'src/config'
+
+import '../styles/code.css'
+
+const {
+  content: { title, authors, description, publishedDate }
+}: Record<string, IPost> = Astro.props
+---
+
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <BaseHead title={`${title} - ${GLOBAL_CONFIG.siteTitle}`} description={description} />
+  </head>
+
+  <body class="dark:bg-zinc-900 pb-28">
+    <Topbar />
+    <main class="mb-16">
+      <div class="max-w-5xl mx-auto">
+        <MoveBack client:load />
+      </div>
+
+      <article class="container relative pt-10 mx-auto max-w-4xl">
+        <PublishedAt publishedDate={publishedDate} />
+        <h1
+          class="text-2xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-200 md:text-3xl"
+        >
+          {title}
+        </h1>
+        <PostAuthors authors={authors} />
+        <div
+          class="mt-12 max-w-none prose prose-zinc prose-img:rounded-md prose-img:shadow-md dark:prose-invert dark:prose-p:text-zinc-400 selection:bg-rose-300 selection:text-rose-900"
+        >
+          <slot />
+        </div>
+      </article>
+    </main>
+    
+    <footer>
+      <div class="container w-full max-w-4xl">
+        <section
+          class="relative py-16 border-t border-zinc-200 dark:border-zinc-200/5"
+        >
+          <h2
+            class="text-xl font-semibold text-zinc-900 tracking-tight dark:text-white"
+          >
+            Get all of the author's updates directly to your&nbsp;inbox.<br />Sign up for
+            newsletter.
+          </h2>
+
+          <div class="mt-5 max-w-md">
+            <FooterForm />
+          </div>
+        </section>
+      </div>
+    </footer>
+    <BackToTopBtn client:idle />
+  </body>
+</html>

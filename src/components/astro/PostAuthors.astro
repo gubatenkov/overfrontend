@@ -1,0 +1,47 @@
+---
+import { Image } from '@astrojs/image/components'
+
+import { regularAuthors } from 'src/config'
+
+const { authors }: Record<'authors', string[]> = Astro.props
+// try to find match in approved list of authors
+const postAuthors = regularAuthors.filter(({ fullname }) =>
+  authors.includes(fullname)
+)
+---
+
+<div class="mt-6 flex items-center gap-3">
+  {/* List of authors avatars */}
+  <ul class="flex -space-x-2 overflow-hidden p-[2px]">
+    {
+      postAuthors.map((author) => (
+        <li>
+          <Image
+            class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+            src={author.imagePath}
+            alt={author.fullname}
+            format={'webp'}
+            quality={100}
+            height={40}
+            width={40}
+          />
+        </li>
+      ))
+    }
+  </ul>
+  {/* End of the list of authors avatars */}
+  <div class="flex flex-col text-sm">
+    <p class="font-medium text-zinc-900 dark:text-zinc-200">
+      {postAuthors[0].fullname}
+    </p>
+
+    <a
+      class="inline-flex font-normal text-rose-500 hover:text-rose-600 dark:text-rose-400"
+      href={postAuthors[0].contactUrl}
+      rel="noreferrer noopener"
+      target="_blank"
+    >
+      @{postAuthors[0].nickname}
+    </a>
+  </div>
+</div>

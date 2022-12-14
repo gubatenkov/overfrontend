@@ -1,0 +1,60 @@
+---
+import type IPost from 'src/types/Post'
+import type { GetStaticPathsOptions, Page } from 'astro'
+// Astro blocks
+import Card from '@ui/astro/Card.astro'
+import PaginatedPageLayout from 'src/layouts/PaginatedPageLayout.astro'
+// React blocks
+import Pagination from '@ui/react/Pagination'
+
+import { GLOBAL_CONFIG } from 'src/config'
+import { getDay, getMonth } from 'src/utils/dateFormatters'
+
+interface IFrontmatter {
+  url: string
+  frontmatter: IPost
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (await Astro.glob<IFrontmatter>('../posts/*.{md,mdx}')).sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).valueOf() -
+      new Date(a.frontmatter.publishedDate).valueOf()
+  )
+
+  return paginate(posts, { pageSize: GLOBAL_CONFIG.paginatedPageSize })
+}
+
+const { page }: Record<'page', Page> = Astro.props
+---
+
+<PaginatedPageLayout className="flex flex-col gap-12">
+  <h1
+    class="px-2 pt-16 text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-200 sm:text-4xl lg:px-0"
+  >
+    Previous Posts
+  </h1>
+
+  {
+    page.data.map(({ url, frontmatter }: IFrontmatter) => {
+      return (
+        <Card
+          className="[&_.card-circle-icon]:hidden gap-4 sm:ml-0"
+          href={url}
+          tags={frontmatter.tags}
+          title={frontmatter.title}
+          excerpt={frontmatter.description}
+          previewImage={frontmatter.previewImage}
+          day={getDay(frontmatter.publishedDate)}
+          month={getMonth(frontmatter.publishedDate)}
+        />
+      )
+    })
+  }
+
+  <Pagination
+    totalItems={page.total}
+    itemsPerPage={page.size}
+    currentPage={page.currentPage}
+  />
+</PaginatedPageLayout>

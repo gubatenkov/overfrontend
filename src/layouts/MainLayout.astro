@@ -1,0 +1,32 @@
+---
+import Topbar from '@ui/astro/Topbar.astro'
+import BaseHead from '@ui/astro/BaseHead.astro'
+import BackgroundPicture from '@ui/astro/BackgroundPicture.astro'
+
+import { GLOBAL_CONFIG } from 'src/config'
+
+import '../styles/global.css'
+
+const { className = '' }: Record<'className', string> = Astro.props
+---
+
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <BaseHead
+      title={GLOBAL_CONFIG.siteTitle + ' - A blog by Sokolenko Slava'}
+      description={GLOBAL_CONFIG.siteDescription}
+    />
+  </head>
+
+  <body class="dark:bg-zinc-900">
+    <BackgroundPicture />
+    <Topbar />
+    <main
+      class={className +
+        ' content px-2 sm:px-4 md:px-8 pb-28 max-w-5xl mx-auto'}
+    >
+      <slot />
+    </main>
+  </body>
+</html>

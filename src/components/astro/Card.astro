@@ -1,0 +1,110 @@
+---
+import { Image } from '@astrojs/image/components'
+
+import CircleIcon from '@ui/icons/CircleIcon'
+import ChevronIcon from '@ui/icons/ChevronIcon'
+
+export interface IProps {
+  day: string
+  tags: string[]
+  href: string
+  title: string
+  month: string
+  excerpt: string
+  className?: string
+  previewImage: string
+}
+
+const {
+  day,
+  tags,
+  href,
+  title,
+  month,
+  excerpt,
+  previewImage,
+  className = ''
+} = Astro.props as IProps
+---
+
+<article class={className + ' group relative flex sm:ml-8 lg:ml-0'}>
+  <div
+    class="relative hidden aspect-square w-[180px] shrink-0 overflow-hidden rounded-md lg:block"
+  >
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 flex h-full w-full transform-gpu flex-col items-center justify-center text-center duration-500 ease-in-out group-hover:translate-y-[-100%]"
+    >
+      <div class="translate-y-[3px]">
+        <span
+          class="block text-[80px] font-bold leading-[100%] text-zinc-900 dark:text-zinc-200"
+        >
+          {day}
+        </span>
+
+        <span class="mt-3 block text-sm text-zinc-900 dark:text-zinc-200">
+          {month}
+        </span>
+      </div>
+    </div>
+
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 translate-y-full duration-500 ease-in-out group-hover:translate-y-0"
+    >
+      <Image
+        src={`/assets/posts/${previewImage}`}
+        alt="Post image description"
+        aspectRatio="1:1"
+        format="webp"
+        quality={100}
+        height={180}
+        width={180}
+      />
+    </div>
+  </div>
+
+  <div
+    class="relative flex cursor-pointer flex-col rounded-md px-2 py-2 group-hover:bg-[rgba(251,249,250,0.5)] dark:group-hover:bg-zinc-50/10 sm:pl-4"
+  >
+    <ul class="mb-2 flex w-fit gap-4">
+      {
+        (tags ?? []).map((tag) => (
+          <li>
+            <span class="font-base text-sm text-rose-500 dark:text-rose-400">
+              #{tag}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="mb-2 text-xl font-bold text-zinc-900 dark:text-zinc-200">
+      {title}
+    </h2>
+
+    <p
+      class="mb-4 text-[15px] leading-7 tracking-wide text-zinc-700 line-clamp-2 dark:text-zinc-400"
+    >
+      {excerpt}
+    </p>
+
+    <a
+      class="flex w-fit items-center text-sm font-medium text-rose-600 ring-rose-400 dark:text-rose-400 dark:ring-rose-50"
+      href={href}
+    >
+      <span class="absolute top-0 left-0 right-0 bottom-0"></span>
+
+      <span>
+        Read more
+        <span class="sr-only">{title}</span>
+      </span>
+
+      <ChevronIcon
+        className="relative mt-px ml-2.5 overflow-visible text-rose-300 dark:text-rose-400"
+      />
+    </a>
+  </div>
+
+  <CircleIcon
+    className="card-circle-icon absolute left-0 top-[48px] z-10 translate-x-[-50%] sm:left-[-15px] lg:left-[196px]"
+  />
+</article>

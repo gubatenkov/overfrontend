@@ -1,0 +1,21 @@
+---
+import { Picture } from '@astrojs/image/components'
+---
+
+<div
+  class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
+>
+  <div
+    class="w-[93rem] sm:w-[108rem] flex-none flex justify-end opacity-0 transition-opacity duration-75 ease-in-out dark:opacity-100 dark:duration-1000"
+  >
+    <Picture
+      class="w-[800px]"
+      src={'/assets/images/lights-dark.png'}
+      sizes="(max-width: 800px) 100vw, 800px"
+      formats={['avif', 'webp', 'png']}
+      aspectRatio="4:3"
+      widths={[1920]}
+      alt=""
+    />
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2015",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "@ui/*": [
+        "src/components/*"
+      ],
+    }
+  }
+}

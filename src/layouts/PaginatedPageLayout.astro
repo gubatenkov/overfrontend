@@ -1,0 +1,26 @@
+---
+import Topbar from '@ui/astro/Topbar.astro'
+import BaseHead from '@ui/astro/BaseHead.astro'
+import BackgroundPicture from '@ui/astro/BackgroundPicture.astro'
+
+import { GLOBAL_CONFIG } from 'src/config'
+
+const { className = '' }: Record<string, string> = Astro.props
+---
+
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <BaseHead
+      title={GLOBAL_CONFIG.siteTitle}
+      description={GLOBAL_CONFIG.siteDescription}
+    />
+  </head>
+  <body class="dark:bg-zinc-900">
+    <BackgroundPicture />
+    <Topbar />
+    <main class={className + ' content max-w-4xl mx-auto pb-28 px-2'}>
+      <slot />
+    </main>
+  </body>
+</html>

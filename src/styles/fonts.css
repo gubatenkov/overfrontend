@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter/InterRegular.eot');
+  src: url('/assets/fonts/inter/InterRegular.eot') format('embedded-opentype'),
+    url('/assets/fonts/inter/InterRegular.woff2') format('woff2'),
+    url('/assets/inter/fonts/InterRegular.woff') format('woff'),
+    url('/assets/fonts/inter/InterRegular.ttf') format('truetype'),
+    url('/assets/fonts/inter/InterRegular.svg#InterRegular') format('svg');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter/InterMedium.eot');
+  src: url('/assets/fonts/inter/InterMedium.eot') format('embedded-opentype'),
+    url('/assets/fonts/inter/InterMedium.woff2') format('woff2'),
+    url('/assets/fonts/inter/InterMedium.woff') format('woff'),
+    url('/assets/fonts/inter/InterMedium.ttf') format('truetype'),
+    url('/assets/fonts/inter/InterMedium.svg#InterMedium') format('svg');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter/InterSemiBold.eot');
+  src: url('/assets/fonts/inter/InterSemiBold.eot') format('embedded-opentype'),
+    url('/assets/fonts/inter/InterSemiBold.woff2') format('woff2'),
+    url('/assets/fonts/inter/InterSemiBold.woff') format('woff'),
+    url('/assets/fonts/inter/InterSemiBold.ttf') format('truetype'),
+    url('/assets/fonts/inter/InterSemiBold.svg#InterSemiBold') format('svg');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter/InterBold.eot');
+  src: url('/assets/fonts/inter/InterBold.eot') format('embedded-opentype'),
+    url('/assets/fonts/inter/InterBold.woff2') format('woff2'),
+    url('/assets/fonts/inter/InterBold.woff') format('woff'),
+    url('/assets/fonts/inter/InterBold.ttf') format('truetype'),
+    url('/assets/fonts/inter/InterBold.svg#InterBold') format('svg');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
