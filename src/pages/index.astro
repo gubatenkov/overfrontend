@@ -17,7 +17,7 @@ interface IFrontmatter {
 }
 
 /** Get all .md,.mdx posts from the directory
-  * and sort them starting with the most recent */
+ * and sort them starting with the most recent */
 const posts = (await Astro.glob<IFrontmatter>('./posts/*.{md,mdx}')).sort(
   (a, b) =>
     new Date(b.frontmatter.publishedDate).valueOf() -
