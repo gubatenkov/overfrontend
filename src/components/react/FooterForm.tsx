@@ -7,10 +7,10 @@ const FooterForm: FC = () => (
       <div className="group relative">
         <MailIcon />
         <input
-          className="block w-full appearance-none rounded-md border border-transparent
-          bg-white py-2 pl-12 pr-3 leading-5 text-zinc-900 shadow ring-1 ring-zinc-900/5
-          placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-rose-500
-          dark:bg-zinc-700/20 dark:text-white dark:ring-zinc-200/20 dark:focus:ring-rose-500
+          className="block w-full grow-[999] basis-64 appearance-none rounded-md border border-transparent
+          bg-white py-2 pl-12 pr-3 leading-5 text-zinc-900 shadow-inner ring-1 ring-zinc-900/5
+          placeholder:text-zinc-400 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10
+          dark:bg-zinc-700/20 dark:text-white dark:ring-zinc-200/20 dark:focus:ring-rose-500/10
           sm:text-sm"
           placeholder="Subscribe via email"
           aria-label="Email address"

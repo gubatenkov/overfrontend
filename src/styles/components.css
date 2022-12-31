@@ -1,4 +1,18 @@
 @tailwind components;
 
 @layer components {
+  .article h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply relative [&>.anchor-link]:absolute [&>.anchor-link]:-left-8 [&>.anchor-link]:-rotate-45 [&>.anchor-link]:invisible
+    [&>.anchor-link]:top-[50%] [&>.anchor-link]:translate-y-[-50%] [&>.anchor-link]:border-none [&:hover>.anchor-link]:visible
+    [&>.anchor-link]:p-2;
+  }
+
+  .mark mark {
+    @apply rounded-sm bg-rose-400 px-1 text-[#212121];
+  }
 }

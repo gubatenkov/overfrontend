@@ -16,7 +16,7 @@ const BackToTopBtn: FC = () => {
     <button
       className={
         (isScrolled ? 'opacity-60' : 'opacity-0') +
-        ' h-10 w-10 fixed right-4 min-[1148px]:right-[calc((100vw-70rem)/2)] bottom-10 rounded-full bg-zinc-300 tap-h'
+        ' tap-h fixed right-4 bottom-10 h-10 w-10 rounded-md bg-zinc-300 hover:shadow-md min-[1148px]:right-[calc((100vw-70rem)/2)]'
       }
       onClick={handleClick}
     >

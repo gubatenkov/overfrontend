@@ -14,11 +14,6 @@ module.exports = {
               '&:hover': {
                 borderBottomWidth: '2px'
               }
-            },
-            mark: {
-              padding: '0 0.125rem 0',
-              background: theme('colors.rose.400'),
-              borderRadius: theme('borderRadius.sm')
             }
           }
         }

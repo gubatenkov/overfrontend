@@ -32,7 +32,7 @@ const Pagination: FC<IProps> = ({ totalItems, currentPage, itemsPerPage }) => {
           >
             <a
               className="absolute top-0 left-0 right-0 bottom-0 inline-flex items-center justify-center
-              rounded-full focus:outline-none ring-black focus:ring-2 dark:shadow-none dark:ring-rose-50"
+              rounded-full ring-black focus:outline-none focus:ring-2 dark:shadow-none dark:ring-rose-50"
               href={pageNumber === 1 ? '/' : `/page/${pageNumber}`}
             >
               {pageNumber}

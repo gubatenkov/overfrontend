@@ -8,9 +8,11 @@ export interface Props {
   description: string
   image?: string
 }
-
-const { title, description, image = '/placeholder-social.jpg' } = Astro.props
+// TO DO: change default OG Image and path
+const { title, description, image = '/assets/posts/placeholder-social.jpg' } = Astro.props
 ---
+<!-- Tell to ALL search engines to deprecate from indexing ALL the site -->
+<meta name="robots" content="noindex">
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />

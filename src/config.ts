@@ -12,7 +12,7 @@ export const GLOBAL_CONFIG: ConfigType = {
   origin: 'https://overfrontend.io/',
   siteTitle: 'Overfrontend',
   siteDescription:
-    'Personal blog of a frontend developer where I write with words and code',
+    'Personal blog of a Frontend Developer where I write with snippets of code',
   paginatedPageSize: 3
 }
 

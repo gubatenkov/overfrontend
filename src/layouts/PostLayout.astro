@@ -13,6 +13,7 @@ import PostAuthors from '@ui/astro/PostAuthors.astro'
 import { GLOBAL_CONFIG } from 'src/config'
 
 import '../styles/code.css'
+import Comments from '@ui/react/Comments'
 
 const {
   content: { title, authors, description, publishedDate }
@@ -22,7 +23,10 @@ const {
 <!DOCTYPE html>
 <html class="" lang="en">
   <head>
-    <BaseHead title={`${title} - ${GLOBAL_CONFIG.siteTitle}`} description={description} />
+    <BaseHead
+      title={`${title} - ${GLOBAL_CONFIG.siteTitle}`}
+      description={description}
+    />
   </head>
 
   <body class="dark:bg-zinc-900 pb-28">
@@ -32,7 +36,7 @@ const {
         <MoveBack client:load />
       </div>
 
-      <article class="container relative pt-10 mx-auto max-w-4xl">
+      <article class="article container relative pt-10 mx-auto max-w-4xl">
         <PublishedAt publishedDate={publishedDate} />
         <h1
           class="text-2xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-200 md:text-3xl"
@@ -41,13 +45,13 @@ const {
         </h1>
         <PostAuthors authors={authors} />
         <div
-          class="mt-12 max-w-none prose prose-zinc prose-img:rounded-md prose-img:shadow-md dark:prose-invert dark:prose-p:text-zinc-400 selection:bg-rose-300 selection:text-rose-900"
+          class="mark mt-12 max-w-none prose prose-zinc prose-img:rounded-md prose-img:shadow-md dark:prose-invert dark:prose-p:text-zinc-400 selection:bg-rose-300 selection:text-rose-900"
         >
           <slot />
         </div>
       </article>
     </main>
-    
+
     <footer>
       <div class="container w-full max-w-4xl">
         <section
@@ -56,14 +60,18 @@ const {
           <h2
             class="text-xl font-semibold text-zinc-900 tracking-tight dark:text-white"
           >
-            Get all of the author's updates directly to your&nbsp;inbox.<br />Sign up for
-            newsletter.
+            Get all of the author's updates directly to your&nbsp;inbox.<br
+            />Sign up for newsletter.
           </h2>
 
           <div class="mt-5 max-w-md">
             <FooterForm />
           </div>
         </section>
+
+        <!-- <section>
+          <Comments client:visible />
+        </section> -->
       </div>
     </footer>
     <BackToTopBtn client:idle />
