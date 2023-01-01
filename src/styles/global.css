@@ -28,3 +28,11 @@
 .toc {
   margin: 2rem 0;
 }
+
+.toc-title {
+  margin-bottom: 0.5rem;
+}
+
+.toc-level {
+  margin-top: 0.5rem;
+}
