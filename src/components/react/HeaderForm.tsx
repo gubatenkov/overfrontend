@@ -21,22 +21,13 @@ const HeaderForm: FC = () => {
           <MailIcon />
 
           <input
-            className="block w-full grow-[999] basis-64 appearance-none rounded-md border border-transparent
-            bg-white py-2 pl-12 pr-3 leading-5 text-zinc-900 shadow-inner ring-1 ring-zinc-900/5
-            placeholder:text-zinc-400 focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/10
-            dark:bg-zinc-700/20 dark:text-white dark:ring-zinc-200/20 dark:focus:ring-rose-500/10 sm:text-sm"
+            className="form-input"
             placeholder="Subscribe via email"
             type="email"
             required
           />
 
-          <button
-            className="flex-auto rounded-md border-y border-transparent bg-rose-600 py-2 px-3 text-sm font-semibold text-white
-            shadow hover:bg-rose-500 hover:shadow-none focus:outline-none focus:ring-2 focus:ring-rose-300 focus:ring-offset-2
-            dark:bg-rose-500 dark:hover:bg-rose-400 dark:focus:ring-rose-700 dark:focus:ring-offset-zinc-900"
-          >
-            Subscribe
-          </button>
+          <button className="form-btn">Subscribe</button>
         </form>
       </section>
     </header>

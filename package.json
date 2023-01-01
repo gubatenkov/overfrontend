@@ -43,6 +43,7 @@
     "hastscript": "^7.1.0",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "rehype-toc": "^3.0.2",
     "remark-shiki-twoslash": "^3.1.0",
     "typescript": "*"
   },

@@ -13,7 +13,6 @@ import PostAuthors from '@ui/astro/PostAuthors.astro'
 import { GLOBAL_CONFIG } from 'src/config'
 
 import '../styles/code.css'
-import Comments from '@ui/react/Comments'
 
 const {
   content: { title, authors, description, publishedDate }
@@ -45,7 +44,7 @@ const {
         </h1>
         <PostAuthors authors={authors} />
         <div
-          class="mark mt-12 max-w-none prose prose-zinc prose-img:rounded-md prose-img:shadow-md dark:prose-invert dark:prose-p:text-zinc-400 selection:bg-rose-300 selection:text-rose-900"
+          class="mark mt-8 max-w-none prose prose-zinc prose-img:rounded-md prose-img:shadow-md dark:prose-invert dark:prose-p:text-zinc-400 selection:bg-rose-300 selection:text-rose-900"
         >
           <slot />
         </div>
@@ -68,10 +67,6 @@ const {
             <FooterForm />
           </div>
         </section>
-
-        <!-- <section>
-          <Comments client:visible />
-        </section> -->
       </div>
     </footer>
     <BackToTopBtn client:idle />
