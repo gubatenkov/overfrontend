@@ -27,12 +27,12 @@ const {
 } = Astro.props as IProps
 ---
 
-<article class={className + ' group relative flex sm:ml-8 lg:ml-0'}>
+<article class={className + ' card group relative flex sm:ml-8 lg:ml-0'}>
   <div
     class="relative hidden aspect-square w-[180px] shrink-0 overflow-hidden rounded-md lg:block"
   >
     <div
-      class="absolute top-0 left-0 right-0 bottom-0 flex h-full w-full transform-gpu flex-col items-center justify-center text-center duration-500 ease-in-out group-hover:translate-y-[-100%]"
+      class="card-date absolute top-0 left-0 right-0 bottom-0 flex h-full w-full flex-col items-center justify-center text-center duration-500 ease-in-out"
     >
       <div class="translate-y-[3px]">
         <span

@@ -36,3 +36,7 @@
 .toc-level {
   margin-top: 0.5rem;
 }
+
+.card:hover .card-date {
+  transform: translateY(-100%);
+}

@@ -1,0 +1,39 @@
+---
+import TgIcon from '@ui/icons/TgIcon'
+import GitIcon from '@ui/icons/GitIcon'
+import RssIcon from '@ui/icons/RssIcon'
+
+import { GLOBAL_CONFIG } from 'src/config';
+
+export const socials = [
+  {
+    icon: TgIcon,
+    url: 'https://t.me/soko1enkov'
+  },
+  {
+    icon: GitIcon,
+    url: 'https://github.com/sokolenkov'
+  },
+  {
+    icon: RssIcon,
+    url: `${GLOBAL_CONFIG.origin}/rss.xml`
+  }
+]
+---
+
+<ul class="inline-flex justify-between">
+  {
+    socials.map(({ icon: Icon, url }) => (
+      <li>
+        <a
+          class="[&>svg]:hover:text-rose-600 inline-flex p-2"
+          rel="noopener noreferrer"
+          target="_blank"
+          href={url}
+        >
+          {<Icon className="h-5 w-5 text-zinc-500  dark:hover:text-rose-400" />}
+        </a>
+      </li>
+    ))
+  }
+</ul>

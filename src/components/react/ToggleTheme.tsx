@@ -22,10 +22,10 @@ const ToggleTheme: FC = () => {
     >
       {theme === 'dark' && isMounted
         ? (
-        <MoonIcon className="h-[18px] w-[18px] opacity-60 dark:text-zinc-200" />
+        <MoonIcon className="h-[18px] w-[18px] text-zinc-500" />
           )
         : (
-        <SunIcon className="h-[18px] w-[18px] opacity-60 dark:text-zinc-200" />
+        <SunIcon className="h-[18px] w-[18px] text-zinc-500" />
           )}
     </button>
   )

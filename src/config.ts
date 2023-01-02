@@ -9,7 +9,7 @@ interface ConfigType {
 }
 
 export const GLOBAL_CONFIG: ConfigType = {
-  origin: 'https://overfrontend.io/',
+  origin: 'https://overfrontend.io',
   siteTitle: 'Overfrontend',
   siteDescription:
     'Personal blog of a Frontend Developer where I write with snippets of code',

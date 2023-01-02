@@ -9,6 +9,7 @@ import BackToTopBtn from '@ui/react/BackToTopBtn'
 import Topbar from '@ui/astro/Topbar.astro'
 import BaseHead from '@ui/astro/BaseHead.astro'
 import PostAuthors from '@ui/astro/PostAuthors.astro'
+import SocialsList from '@ui/astro/SocialsList.astro'
 
 import { GLOBAL_CONFIG } from 'src/config'
 
@@ -28,7 +29,7 @@ const {
     />
   </head>
 
-  <body class="dark:bg-zinc-900 pb-28">
+  <body class="dark:bg-zinc-900">
     <Topbar />
     <main class="mb-16">
       <div class="max-w-5xl mx-auto">
@@ -50,25 +51,27 @@ const {
         </div>
       </article>
     </main>
-
-    <footer>
-      <div class="container w-full max-w-4xl">
-        <section
-          class="relative py-16 border-t border-zinc-200 dark:border-zinc-200/5"
+    <div class="container w-full max-w-4xl">
+      <div
+        class="relative py-16 border-t border-zinc-200 dark:border-zinc-200/5"
+      >
+        <h2
+          class="text-xl font-semibold text-zinc-900 tracking-tight dark:text-white"
         >
-          <h2
-            class="text-xl font-semibold text-zinc-900 tracking-tight dark:text-white"
-          >
-            Get all of the author's updates directly to your&nbsp;inbox.<br
-            />Sign up for newsletter.
-          </h2>
+          Get all of the author's updates directly to your&nbsp;inbox.<br />Sign
+          up for newsletter.
+        </h2>
 
-          <div class="mt-5 max-w-md">
-            <FooterForm />
-          </div>
-        </section>
+        <div class="mt-5 max-w-md">
+          <FooterForm />
+        </div>
+      </div>
+    </div>
+    <BackToTopBtn client:idle />
+    <footer class="pb-8">
+      <div class="w-full max-w-6xl mx-auto px-4">
+        <SocialsList />
       </div>
     </footer>
-    <BackToTopBtn client:idle />
   </body>
 </html>

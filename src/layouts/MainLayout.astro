@@ -1,6 +1,7 @@
 ---
 import Topbar from '@ui/astro/Topbar.astro'
 import BaseHead from '@ui/astro/BaseHead.astro'
+import SocialsList from '@ui/astro/SocialsList.astro'
 import BackgroundPicture from '@ui/astro/BackgroundPicture.astro'
 
 import { GLOBAL_CONFIG } from 'src/config'
@@ -18,15 +19,19 @@ const { className = '' }: Record<'className', string> = Astro.props
       description={GLOBAL_CONFIG.siteDescription}
     />
   </head>
-
   <body class="dark:bg-zinc-900">
     <BackgroundPicture />
     <Topbar />
     <main
       class={className +
-        ' content px-2 sm:px-4 md:px-8 pb-28 max-w-5xl mx-auto'}
+        ' content px-2 sm:px-4 md:px-8 pb-12 max-w-5xl mx-auto'}
     >
       <slot />
     </main>
+    <footer class="pb-8">
+      <div class="w-full max-w-6xl mx-auto px-4">
+        <SocialsList />
+      </div>
+    </footer>
   </body>
 </html>
