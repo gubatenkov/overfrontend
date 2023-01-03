@@ -6,15 +6,16 @@ import BackgroundPicture from '@ui/astro/BackgroundPicture.astro'
 
 import { GLOBAL_CONFIG } from 'src/config'
 
-const { className = '' }: Record<string, string> = Astro.props
+const { className = '', page }: Record<string, string> = Astro.props
 ---
 
 <!DOCTYPE html>
 <html class="" lang="en">
   <head>
     <BaseHead
-      title={GLOBAL_CONFIG.siteTitle}
+      title={`Page ${page} - ${GLOBAL_CONFIG.siteTitle}`}
       description={GLOBAL_CONFIG.siteDescription}
+      image={`/assets/images/paginatedPagePreviw.jpg`}
     />
   </head>
   <body class="min-h-screen flex flex-col dark:bg-zinc-900">

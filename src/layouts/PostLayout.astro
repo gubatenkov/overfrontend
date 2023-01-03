@@ -16,8 +16,9 @@ import { GLOBAL_CONFIG } from 'src/config'
 import '../styles/code.css'
 
 const {
-  content: { title, authors, description, publishedDate }
+  content: { title, authors, description, publishedDate, previewImage }
 }: Record<string, IPost> = Astro.props
+
 ---
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@ const {
     <BaseHead
       title={`${title} - ${GLOBAL_CONFIG.siteTitle}`}
       description={description}
+      image={`/assets/posts/${previewImage}`}
     />
   </head>
 

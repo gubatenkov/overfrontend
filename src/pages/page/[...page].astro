@@ -28,7 +28,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 const { page }: Record<'page', Page> = Astro.props
 ---
 
-<PaginatedPageLayout className="flex flex-col gap-12">
+<PaginatedPageLayout className="flex flex-col gap-12" page={page.currentPage}>
   <h1
     class="px-2 pt-16 text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-200 sm:text-4xl lg:px-0"
   >

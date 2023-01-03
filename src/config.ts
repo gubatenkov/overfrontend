@@ -9,10 +9,10 @@ interface ConfigType {
 }
 
 export const GLOBAL_CONFIG: ConfigType = {
-  origin: 'https://overfrontend.io',
+  origin: 'https://overfrontend.pages.dev',
   siteTitle: 'Overfrontend',
   siteDescription:
-    'Personal blog of a Frontend Developer where I write with snippets of code',
+    'Technical blog of a frontend developer where I write with words and snippets of code',
   paginatedPageSize: 3
 }
 
